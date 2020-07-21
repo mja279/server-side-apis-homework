@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+<!-- Jumbotron Banner -->
+    <div class="jumbotron">
+        <h1 class="display-4 d-flex justify-content-center" >Weather Dashboard</h1>  
+    </div>
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12 blog-main">
+            <h3 class="pb-4 mb-4 font-italic border-bottom current-city">
+                name of city
+            </h3>
+        </div>
+
+        <aside class="col-md-3 sidebar">
+            <form id="search-form">
+                <label for="city-input">Search for City</label>
+                <input type="text" id="city-input"><br>
+          
+                <!-- This button will trigger our AJAX call -->
+                <input id="find-city" type="submit" value="Search">
+              </form>
+
+            </br>
+
+            <div class="p-2 mb-3 bg-light rounded">
+                <h4 class="font-italic">Recent Searches</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item recent-1"><a href="#">placeholder</a></li>
+                    <li class="list-group-item recent-2"><a href="#">placeholder</a></li>
+                    <li class="list-group-item recent-3"><a href="#">placeholder</a></li>
+                    <li class="list-group-item recent-4"><a href="#">placeholder</a></li>
+                    <li class="list-group-item recent-5"><a href="#">placeholder</a></li>
+                    <li class="list-group-item recent-6"><a href="#">placeholder</a></li>
+                    <li class="list-group-item recent-7"><a href="#">placeholder</a></li>
+                    <li class="list-group-item recent-8"><a href="#">placeholder</a></li>
+                    </ul>
+            </div>
+        </aside>
+
+        <!-- Current city weather metrics -->
+        <div class="col-md-9">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary date">Month day, year </strong>
+                  <h3 class="mb-0 current-city">city</h3>
+                  <div class="mb-1 text-muted"></div>
+                </br>
+                    <p class="card-text mb-auto">Temperature: </p>
+                    <p class="card-text mb-auto">Humidity: </p>
+                    <p class="card-text mb-auto">Wind Speed: </p>
+                    <p class="card-text mb-auto">UV Index: </p>
+                </div>
+
+                <div class="col-auto d-none d-md-block">
+                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"/>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">weather</text>
+                </svg>
+                </div>
+              </div>
+                <!--5-day forecast  -->
+            <div class="col-md-12">
+                <section>
+                <div class="container-md text-left">
+                    <h3>
+                        5-Day Forecast:
+                    </h3>
+                </section>
+
+                <div class="album py-5">
+                    <div class="container">
+                
+                    <div class="row">
+                            <div class="col-md-2 my-col">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4 class=future-4>MM/DD/YYYY</h4>
+                                    <ul class="list-unstyled mt-5 mb-5">
+                                        <li class="temp">Temp: </li>
+                                        <li class="humidity">Humidty: </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-2  my-col">
+                                <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4 class=future-4>MM/DD/YYYY</h4>
+                                    <ul class="list-unstyled mt-5 mb-5">
+                                        <li class="temp">Temp: </li>
+                                        <li class="humidity">Humidty: </li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2  my-col">
+                                <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4 class=future-4>MM/DD/YYYY</h4>
+                                    <ul class="list-unstyled mt-5 mb-5">
+                                        <li class="temp">Temp: </li>
+                                        <li class="humidity">Humidty: </li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2  my-col">
+                                <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4 class=future-4>MM/DD/YYYY</h4>
+                                    <ul class="list-unstyled mt-5 mb-5">
+                                        <li class="temp">Temp: </li>
+                                        <li class="humidity">Humidty: </li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2  my-col">
+                                <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4 class=future-4>MM/DD/YYYY</h4>
+                                    <ul class="list-unstyled mt-5 mb-5">
+                                        <li class="temp">Temp: </li>
+                                        <li class="humidity">Humidty: </li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>      
+        </div>
+
+    </div>
+<!-- Footer -->
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+        <div class="col-12 col-md">
+            <img class="mb-2" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
+        </div>
+        </div>
+    </footer>
+</main>
+
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+   
+<script src="script.js"></script>
+
+</body>    
+
+
+
+<!-- Symbols -->
+<!-- <div>
+<svg>
+<symbol id="svg-symbol-moon"><symbol id="svg-symbol-hail" viewBox="0 0 89 170">
+    <path d="M24,2 L9,37 L24,2 Z M10,5 L2,23 L10,5 Z" id="Shape" stroke="var(--color-hail)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+    <circle fill="var(--color-hail)" r="8" cx="0" cy="52"></circle>
+</symbol>
+    <path fill="var(--color-moon)" d="M71 0 A 50 48, 150, 1, 0, 118 81 A 60 57, 140, 0, 1, 71 0"></path>
+</symbol>
+
+<symbol id="svg-symbol-sun-ray">
+    <path d="M100,44.1c3.1,0,6.1,0.3,9,0.7l-5.3-40.7c0,0,0-0.1,0-0.1c-0.3-1.9-2-3.2-4-3c-1.5,0.2-2.7,1.3-3,2.8 c0,0.1-0.1,0.2-0.1,0.2l-5.5,40.7C94.1,44.3,97,44.1,100,44.1z"></path>
+</symbol>
+
+<symbol id="svg-symbol-cloud" viewBox="-4 0 204 200">
+    <path fill="var(--color-cloud)" d="M197.9,108.5c-4.7-17.5-22.7-28-40.2-23.4c0,0-1.3,0.3-3.5,0.9c-5.6-20.8-24.6-36.2-47.2-36.2 c-24.5,0-44.8,18.1-48.3,41.6c-0.8-0.2-1.3-0.3-1.3-0.3c-14.8-3.8-30,5-33.9,19.8c-0.9,3.5-1.1,7-0.8,10.4c-7.4,2-12,3.2-12,3.2 c-7,1.9-11.1,9-9.2,16c1.6,6.1,7.3,10,13.4,9.7h150.3c0,0,6.2-0.3,9.4-1.1C192.1,144.3,202.6,126.2,197.9,108.5z"></path>
+</symbol>
+
+<symbol id="svg-symbol-drop">
+    <path fill="var(--color-drop)" d="M82.1,123.3c0.4-0.9-0.2-1.9-1.2-2.2c-0.9-0.3-1.9,0-2.3,0.7h0l-19.4,24.8c-0.4,0.5-0.7,1-1,1.6 c-1.2,3,0.6,6.4,4,7.5c3.4,1.1,7-0.4,8.3-3.3h0L82,123.5L82.1,123.3L82.1,123.3z"></path>
+</symbol>
+
+<symbol id="svg-symbol-wind">
+    <path fill="var(--color-wind)" d="M85.7,109.4c-3.5,0-6.4-2.8-6.4-6.4s2.8-6.4,6.4-6.4h85.2c4.1-0.1,8-1.5,10.8-4.3       c2.9-2.8,4.6-6.6,4.6-10.5c0.1-3-1.1-5.9-3.2-8c-2.1-2.2-5-3.3-8-3.4H175c-2.2,0-4.3,0.8-5.9,2.4c-1.6,1.5-2.5,3.7-2.5,5.9       c0,0.9,0.2,1.8,0.6,2.6c1.5,3.2,0.1,7-3.1,8.5c-3.2,1.5-7,0.1-8.5-3.1c-1.2-2.6-1.8-5.3-1.7-8.1c0.1-5.7,2.3-10.9,6.4-14.9       c4-3.9,9.3-6,14.8-6h0.1c6.5,0.1,12.5,2.6,17,7.2c4.5,4.6,6.9,10.7,6.9,17.1c-0.1,7.4-3.1,14.3-8.5,19.5       c-5.1,5-12.1,7.7-19.5,7.8L85.7,109.4L85.7,109.4z"></path>
+</symbol>
+</svg>
+</div> -->
+
+       
+
