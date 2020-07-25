@@ -1,67 +1,79 @@
- $("#find-city").on("click", function() {
+// OpenWeather API Key as global variable
+var key = "540c1512d41801eb53d62f05f55a02d0";
 
-    event.preventDefault();
+// populate recent cities area from localstorage on page refresh
+recentCities();
 
-//     // Here we grab the text from the input box
-    var city = $("#city-input").val();
-//     // api key
-    var key = "540c1512d41801eb53d62f05f55a02d0";
+//using localstorage, run api to search from history
+// currentWeather(localStorage.getItem("last_searched"));
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + key;
-    
+//search 
+<form id="search-form">
+
+{/* Label for Text Box  */}
+<label for="zip-input">Enter Zipcode</label>
+
+{/* <!-- Text Input Box --> */}
+<input type="text" id="search-zip"><br>
+
+{/* <!-- Submit Button --> */}
+<input id="select-zip" type="submit" value="GO!">
+</form>
+
+{/* <!-- City Information --> */} 
+<div id="zip-div"></div>
+
+
+function searchWeather(zipcode) {
+
+var zipcode = "#search-zip";
+var queryURL = "api.openweathermap.org/data/2.5/forecast?zip=" + zipcode + "units=imperial" + "&appid=" + key;
+
+
     $.ajax({
-        url: queryURL,
-        method: "GET"
-    //   })
-    //   .then(function(response) {
-    //     $("#city-view").text(JSON.stringify(response));
-    })
-
-    .then(function(response) {
-        console.log(response);
-        // validation criteria for faulty search input - api did not understand city querry
-        if(response.status == 404){
-    
-            // change this to on page validation - debug only
-            alert("Please type valid city");
+            url: queryURL,
+            method: "GET",
+        })
         
+    .then(function(response) {
+    
+        if(response.status == 404){
+            alert("Enter valid zipcode");
         }
 
+    localStorage.setItem("city-input-list",response.name);
+
+    
+        console.log(response);
         displayElement(response);
-    });
 
-});
-
-function displayElement (a) {
-    // jquery lines to display current weather
-    var temp = a.main.temp;
-    var humidty = a.main.humidty
-    var city = a.name
-}
+    
+        });
 
 
-$(document).ready(function (){
-    $("#find-city").click(function() {
 
-        var city = $("#city-input").val();
+    var temp = response.main.temp;
+    var humidity = response.main.humidty;
+    var city = response.name;
+    var wind = response.main.speed
+  
 
-        if(city != "") {
+    $("#city-view").text("" + city);
+    $("#city-temp").text("" + temp);
+    $("#city-humidity").text("" + humidity);
+    $("#city-wind").text("" + wind);
+};
 
-            $.ajax({
 
-                url:"http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&APPID=540c1512d41801eb53d62f05f55a02d0",
-                type: "GET",
-                dataType: "jsonp",
-                success: function(data){
-                    console.log(data);
-                }
-            })
 
-        }else{
-            $("#error").html("Field cannot be empty")
-        }
-    });
-});
+$("#search-zip").on("click", function(event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
+    // Storing the zipcode 
+    var inputZipcode = $("#search-zip").val().trim();
 
+    // Run the search function(passing in the zipcode as an argument)
+    searchBandsInTown(inputZipcode);
+  });
 
 
