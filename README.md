@@ -1,8 +1,8 @@
 # server-side-apis-homework
 Weather Dashboard 
 
-<img src="">
-<img src="">
+This represented to be a challenging homework for me. I have not been able to finish out the script, plus while the api does call I could not
+get it to at least show on my page. I think there is something wrong with the html, but I have not had the opportunity to crack this one. 
 
 Weather Widgets source from: https://codepen.io/EvanWieland/pen/PwOKLE 
 
